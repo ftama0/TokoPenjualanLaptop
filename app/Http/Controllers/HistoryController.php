@@ -22,15 +22,17 @@ class HistoryController extends Controller
     public function index()
     {   //Yang tidak sama dengan nul maka menampikan 1 (karena get)
     	$pesanans = Pesanan::where('user_id', Auth::user()->id)->where('status', '!=',0)->get();
+        $user = User::where('id', Auth::user()->id)->first();
         //view menampilkan banyak
-    	return view('history.index', compact('pesanans'));
+    	return view('history.index', compact('pesanans', 'user'));
     }
     //fungsi untuk menampilkan detail pemesanan
     public function detail($id)
     {
     	$pesanan = Pesanan::where('id', $id)->first();
     	$pesanan_details = PesananDetail::where('pesanan_id', $pesanan->id)->get();
+        $user = User::where('id', Auth::user()->id)->first();
 
-     	return view('history.detail', compact('pesanan','pesanan_details'));
+     	return view('history.detail', compact('pesanan','pesanan_details', 'user'));
     }
 }
