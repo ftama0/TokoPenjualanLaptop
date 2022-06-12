@@ -1,3 +1,4 @@
+ <!-- Halaman Detail pemesanan --> 
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -16,7 +17,7 @@
         </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" style="background-color: #cceeff; border:solid 1px #00AA9E">
                     <h3>Berhasil Check Out</h3>
                     <h5>Pesanan anda berhasil check out, selanjutnya silahkan pilih metode pembayaran : <br />  <br /> 
                     <i class="fa fa-university" aria-hidden="true"></i> Bank BNI : 345678-921512-321<br />  <br /> 
@@ -26,11 +27,12 @@
                 </div>
             </div>
             <div class="card mt-2">
-                <div class="card-body">
+                <div class="card-body" style="border:solid 1px #00AA9E">
                     <h3><i class="fa fa-shopping-cart"></i> Detail Pemesanan</h3>
+                     <!-- Jika pesanan kosong maka tidak menampilkan data--> 
                     @if(!empty($pesanan))
                     <p align="right">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
-                    <p align="right">Kode Pemesanan : #{{ number_format($pesanan->kode) }}</p>
+                    <p align="right" style="color: red;">Kode Pemesanan : #{{ number_format($pesanan->kode) }}</p>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -45,6 +47,7 @@
                         </thead>
                         <tbody>
                             <?php $no = 1; ?>
+                             <!-- Jika pesanan ada maka foreach dari pesanan_Detail--> 
                             @foreach($pesanan_details as $pesanan_detail)
                             <tr>
                                 <td>{{ $no++ }}</td>

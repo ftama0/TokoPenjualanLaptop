@@ -1,5 +1,5 @@
 <?php
-
+//controller untuk halaman home setelah login
 namespace App\Http\Controllers;
 use App\Models\Barang;
 use Illuminate\Http\Request;
@@ -11,6 +11,7 @@ class HomeController extends Controller
      *
      * @return void
      */
+    //fungsi untuk auth
     public function __construct()
     {
         $this->middleware('auth');

@@ -1,3 +1,4 @@
+ <!-- Halaman Riwayat Pemesanan --> 
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -15,7 +16,7 @@
         </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" style="background-color: #cceeff; border:solid 1px #00AA9E">
                     <h3><i class="fa fa-history"></i> Riwayat Pemesanan</h3>
                     <table class="table table-striped">
                         <thead>

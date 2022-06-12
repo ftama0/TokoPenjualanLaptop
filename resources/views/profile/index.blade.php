@@ -1,3 +1,5 @@
+<!-- halaman profil user -->
+
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -13,9 +15,10 @@
                 </ol>
             </nav>
         </div>
+        <!-- view profil user -->
         <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" style="background-color: #e6ffff; border:solid 1px #00AA9E">
                     <h4><i class="fa fa-user"></i> My Profile</h4>
                     <table class="table">
                         <tbody>
@@ -44,13 +47,15 @@
                 </div>
             </div>
         </div>
+
+        <!-- update profil user -->
         <div class="col-md-12 mt-2">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" style="background-color: #cceeff; border:solid 1px #00AA9E">
                     <h4><i class="fa fa-pencil-alt"></i> Edit Profile</h4>
                     <form method="POST" action="{{ url('profile') }}">
                         @csrf
-
+                        <!-- nama user -->
                         <div class="form-group row">
                             <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -65,7 +70,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <!-- email user -->
                         <div class="form-group row">
                             <label for="email"
                                 class="col-md-2 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -73,7 +78,7 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email" value="{{ $user->email }}" required autocomplete="email">
-
+                                <!-- nama user -->
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -81,7 +86,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <!-- No HP user -->
                         <div class="form-group row">
                             <label for="nohp" class="col-md-2 col-form-label text-md-right">No. HP</label>
 
@@ -96,7 +101,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <!-- Alamat user -->
                         <div class="form-group row">
                             <label for="alamat" class="col-md-2 col-form-label text-md-right">Alamat</label>
 
@@ -111,7 +116,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <!-- Passowrd User -->
                         <div class="form-group row">
                             <label for="password"
                                 class="col-md-2 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -140,7 +145,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-2">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-success">
                                     Save
                                 </button>
                             </div>

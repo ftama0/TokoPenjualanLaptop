@@ -1,3 +1,5 @@
+<!-- halaman Check Out Barang -->
+
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -14,14 +16,15 @@
             </nav>
         </div>
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h3><i class="fa fa-shopping-cart"></i> Check Out</h3>
+            <div class="card" style="background-color: #cceeff; border:solid 1px #00AA9E">
+                <div class="card-body" >
+                    <h3><i class="fa fa-shopping-cart" ></i> Check Out</h3>
+                    <!-- Jika tidak ada pesanan maka tidak menampilkan data  -->
                     @if(!empty($pesanan))
                     <p align="right">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
+                    <table class="table table-striped" style="background-color: #ffff;">
+                        <thead >
+                            <tr >
                                 <th>No</th>
                                 <th>Gambar</th>
                                 <th>Nama Barang</th>
@@ -33,6 +36,7 @@
                         </thead>
                         <tbody>
                             <?php $no = 1; ?>
+                            <!-- Pengambil data dari tabel pesanan_detail untuk menampilkan data -->
                             @foreach($pesanan_details as $pesanan_detail)
                             <tr>
                                 <td>{{ $no++ }}</td>
@@ -45,6 +49,7 @@
                                 <td align="right">Rp. {{ number_format($pesanan_detail->barang->harga) }}</td>
                                 <td align="right">Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</td>
                                 <td>
+                                    <!-- Fungsi Delete  -->
                                     <form action="{{ url('check-out') }}/{{ $pesanan_detail->id }}" method="post">
                                         @csrf
                                         {{ method_field('DELETE') }}
@@ -59,6 +64,7 @@
                                 <td colspan="5" align="right"><strong>Total Harga :</strong></td>
                                 <td align="right"><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
                                 <td>
+                                    <!-- Button Check out  -->
                                     <a href="{{ url('konfirmasi-check-out') }}" class="btn btn-success"
                                         onclick="return confirm('Anda yakin akan Check Out ?');">
                                         <i class="fa fa-shopping-cart"></i> Check Out

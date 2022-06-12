@@ -1,3 +1,5 @@
+<!-- halaman Detail Barang -->
+
 @extends('layouts.app')
 
 @section('content')
@@ -15,9 +17,9 @@
             </nav>
         </div>
         <div class="col-md-12 mt-1">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
+            <div class="card" style="border:solid 1px #00AA9E">
+                <div class="card-body" >
+                    <div class="row" >
                         <div class="col-md-6">
                             <img src="{{ url('uploads') }}/{{ $barang->gambar }}" class="rounded mx-auto d-block" width="100%" alt=""> 
                         </div>
@@ -45,16 +47,14 @@
                                         <td>Jumlah Pesan</td>
                                         <td>:</td>
                                         <td>
+                                            <!-- Memasukkan ke database  -->
                                              <form method="post" action="{{ url('pesan') }}/{{ $barang->id }}" >
                                             @csrf
                                                 <input type="text" name="jumlah_pesan" class="form-control" required="">
-                                                <button type="submit" class="btn btn-primary mt-2"><i class="fa fa-shopping-cart"></i> Masukkan Keranjang</button>
+                                                <button type="submit" class="btn btn-success mt-2"><i class="fa fa-shopping-cart"></i> Masukkan Keranjang</button>
                                             </form>
                                         </td>
                                     </tr>
-                                   
-                                    
-                                    
                                 </tbody>
                             </table>
                         </div>

@@ -22,10 +22,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bshadow-sm" style="background-color: #e3f2fd;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   <img src="{{ url('images/logo.png') }}" width="200" alt="">
+                   <img src="{{ url('images/logo.png') }}" width="300" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -39,18 +39,18 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        
+                        <!-- Authentication Links -->   
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <li class="nav-item" >
+                                <a class="nav-link" style="font-weight: bold; font-size:20px" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" style="font-weight: bold; font-size:20px" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
+                        
                         <li class="nav-item">
                                 <?php
                                  $pesanan_utama = \App\Models\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
@@ -101,6 +101,7 @@
             @yield('content')
         </main>
     </div>
+    <!-- Alert dari jsDelivr layanan CDN  javascript library  -->
     @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 </body>
 </html>

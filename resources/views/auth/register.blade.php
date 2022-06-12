@@ -1,3 +1,5 @@
+ <!-- Halaman register--> 
+ 
 @extends('layouts.app')
 
 @section('content')
@@ -5,9 +7,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header text-white" style="background-color: #00AA9E; border-color:#00AA9E">{{ __('Register') }}</div>
 
-                <div class="card-body">
+                <div class="card-body" style="background-color: #e6ffff; border:solid 1px #00AA9E">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
